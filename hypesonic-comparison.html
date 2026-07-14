@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hypesonic — AI ad platform comparison</title>
+<meta name="description" content="Hypesonic compared to Creatify, Pencil, AdCreative.ai, Arcads, QuickAds, Superscale, and HypeOn, capability by capability.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F0F10;
+    --ink-2:#141518;
+    --paper:#FFFFFF;
+    --paper-2:#FAFBFC;
+    --line:#E7E8EA;
+    --line-2:#EFEFF1;
+    --muted:#63676F;
+    --muted-2:#9CA0A8;
+    --orange:#FF4A1C;
+    --orange-ink:#E23B0F;
+    --orange-wash:#FFF3EE;
+    --orange-wash-2:#FFF8F5;
+    --font-display:'Inter Tight',-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-body:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+    --font-mono:'JetBrains Mono',ui-monospace,monospace;
+    --wrap:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  svg{display:block}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
+
+  /* nav */
+  .nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.85);backdrop-filter:saturate(160%) blur(12px);border-bottom:1px solid var(--line)}
+  .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:9px;font-family:var(--font-display);font-weight:800;font-size:19px;letter-spacing:-.03em}
+  .brand .dot{width:8px;height:8px;background:var(--orange);border-radius:2px;transform:rotate(45deg)}
+  .btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-body);font-weight:600;font-size:14.5px;padding:11px 20px;border-radius:9px;cursor:pointer;border:1px solid transparent;transition:transform .16s ease,background .16s ease,box-shadow .16s ease}
+  .btn-primary{background:var(--orange);color:#fff}
+  .btn-primary:hover{background:var(--orange-ink);transform:translateY(-1px);box-shadow:0 8px 22px -10px rgba(255,74,28,.7)}
+
+  /* intro */
+  .intro{padding:56px 0 30px}
+  .eyebrow{font-family:var(--font-mono);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:8px}
+  .eyebrow::before{content:"";width:14px;height:1px;background:var(--orange)}
+  h1{font-family:var(--font-display);font-weight:800;font-size:clamp(26px,3.4vw,40px);letter-spacing:-.03em;line-height:1.02;margin:0}
+  h1 .hl{color:var(--orange)}
+
+  /* controls row */
+  .controls{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;margin-top:26px}
+  .selector{display:flex;align-items:center;gap:12px}
+  .selector label{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .select-wrap{position:relative}
+  .select-wrap::after{content:"";position:absolute;right:15px;top:50%;width:8px;height:8px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:translateY(-70%) rotate(45deg);pointer-events:none}
+  .select-wrap select{appearance:none;-webkit-appearance:none;font-family:var(--font-display);font-weight:700;font-size:15px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:11px 42px 11px 16px;cursor:pointer;letter-spacing:-.01em;transition:border-color .15s ease,box-shadow .15s ease}
+  .select-wrap select:hover{border-color:var(--muted-2)}
+  .select-wrap select:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px var(--orange-wash)}
+  .view-note{font-family:var(--font-mono);font-size:12px;color:var(--muted);letter-spacing:.02em}
+  .pill{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:10px;letter-spacing:.03em;padding:4px 9px;border-radius:20px;border:1px solid transparent;color:#6B7280;background:#F1F2F4;white-space:nowrap;font-weight:500}
+  .pill.lim{color:#B4690E;background:#FBEFDD}
+  .pill.gated{color:#6B7280;background:#F1F2F4}
+
+  /* table */
+  .table-block{padding:22px 0 40px}
+  .tscroll{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:#fff;box-shadow:0 26px 60px -46px rgba(15,15,16,.32)}
+  table{border-collapse:separate;border-spacing:0;width:100%;min-width:1060px}
+  thead th{position:sticky;top:0;z-index:5}
+  th,td{text-align:center;vertical-align:middle}
+
+  /* header cells */
+  thead th{background:#fff;padding:0;border-bottom:1px solid var(--line)}
+  .head-inner{padding:20px 12px 18px;font-family:var(--font-display);font-weight:700;font-size:14px;letter-spacing:-.01em;color:var(--muted)}
+  th.cap-col{text-align:left}
+  th.cap-col .head-inner{color:var(--ink);font-size:12.5px;font-family:var(--font-mono);font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-2);padding-left:24px}
+  /* hypesonic header */
+  th.hcol{position:relative}
+  th.hcol .head-inner{color:var(--orange);font-weight:800;font-size:16px}
+  th.hcol::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:var(--orange)}
+  .head-badge{display:block;font-family:var(--font-mono);font-size:9px;letter-spacing:.14em;color:var(--muted-2);text-transform:uppercase;margin-top:3px;font-weight:500}
+
+  /* sticky first column */
+  th.cap-col,td.cap-col{position:sticky;left:0;z-index:4;background:#fff;text-align:left;box-shadow:1px 0 0 var(--line)}
+  thead th.cap-col{z-index:6}
+
+  /* body rows */
+  tbody td{padding:0;border-bottom:1px solid var(--line-2)}
+  tbody tr:last-child td{border-bottom:0}
+  tbody tr td{background:#fff}
+  tbody tr:nth-child(even) td{background:var(--paper-2)}
+  tbody tr:nth-child(even) td.cap-col{background:var(--paper-2)}
+  tbody td.hcol{background:#FFF8F4 !important}
+  tbody tr:hover td{background:var(--orange-wash-2)}
+  tbody tr:hover td.cap-col{background:var(--orange-wash-2)}
+  tbody tr:hover td.hcol{background:#FFF2EB !important}
+
+  /* capability cell */
+  .cap-cell{padding:16px 20px 16px 24px;min-width:280px;max-width:340px}
+  .cap-name{font-family:var(--font-display);font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--ink);line-height:1.25}
+  .cap-pain{font-family:var(--font-mono);font-size:11.5px;line-height:1.4;color:var(--muted);margin-top:5px;display:block}
+  .cap-pain::before{content:"↳ ";color:var(--orange);opacity:.7}
+
+  /* data cell */
+  .cell{padding:16px 12px;min-width:112px}
+  .yes{display:inline-flex;align-items:center;justify-content:center;color:#1FA85C}
+  .yes svg{width:20px;height:20px}
+  .no{display:inline-flex;align-items:center;justify-content:center;color:#E5484D}
+  .no svg{width:18px;height:18px}
+
+  /* footer */
+  .foot{background:var(--ink-2);color:#fff;padding:40px 0}
+  .foot-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+  .foot .brand{color:#fff}
+  .foot .tag{font-size:13px;color:rgba(255,255,255,.5);font-family:var(--font-mono);letter-spacing:.02em}
+
+  @media (max-width:760px){
+    .intro{padding:40px 0 24px}
+    .controls{flex-direction:column;align-items:flex-start}
+    .cap-cell{min-width:220px}
+  }
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand"><span class="dot"></span>HYPESONIC</a>
+  </div>
+</nav>
+
+<main>
+  <section class="wrap intro">
+    <h1>AI ad platform comparison</h1>
+
+    <div class="controls">
+      <div class="selector">
+        <label for="vs">Hypesonic vs.</label>
+        <div class="select-wrap">
+          <select id="vs">
+            <option value="all">All platforms</option>
+            <option value="1">Creatify</option>
+            <option value="2">Pencil</option>
+            <option value="3">AdCreative.ai</option>
+            <option value="4">Arcads</option>
+            <option value="5">QuickAds</option>
+            <option value="6">Superscale</option>
+            <option value="7">HypeOn</option>
+          </select>
+        </div>
+      </div>
+      <span class="view-note" id="viewNote"></span>
+    </div>
+  </section>
+
+  <section class="wrap table-block">
+    <div class="tscroll">
+      <table>
+        <thead id="thead"></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a href="#" class="brand"><span class="dot"></span>HYPESONIC</a>
+    <span class="tag">&copy; 2026 Hypesonic, Inc. Made for brands, built for speed.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var CHECK = '<span class="yes" aria-label="Included"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5 5L20 6.5"/></svg></span>';
+  var NO = '<span class="no" aria-label="Not offered"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg></span>';
+  function pill(t){ var c = (t.toLowerCase()==='limited') ? 'lim' : 'gated'; return '<span class="pill '+c+'">'+t+'</span>'; }
+  function mark(v){
+    if(v==='y') return CHECK;
+    if(v==='n') return NO;
+    return pill(v); // any string = a pill (Limited / Enterprise / Higher tiers)
+  }
+
+  // rows: [capability, ownerPain, marketingPain, [hypesonic, creatify, pencil, adcreative, arcads, quickads, superscale, hypeon]]
+  var rows = [
+    ['Creative strategy (not just generation)',
+      "They pay for ads, but no one makes sure the ads actually sell.",
+      "They get a pile of ads and still have to come up with the angle themselves.",
+      ['y','n','y','n','n','n','y','y']],
+    ['Images + Video + UGC + Copy in one workflow',
+      "They need a few different tools and an agency just to make one ad.",
+      "They're bouncing between separate tools to get one ad made.",
+      ['y','y','y','n','n','y','y','y']],
+    ['Competitor intelligence built in',
+      "Their competitors figure out what works before they do.",
+      "They have to guess what's working by looking at competitors' ads.",
+      ['y','n','n','n','n','n','n','y']],
+    ['Complete campaigns from URL',
+      "Every campaign starts from scratch.",
+      "Setup takes so long there's no time left to test.",
+      ['y','y','y','y','y','y','y','y']],
+    ['Multiple creative angles automatically',
+      "They end up putting the whole budget behind one idea.",
+      "They can't make ads fast enough to keep up.",
+      ['y','y','y','y','y','y','y','y']],
+    ['Creative testing matrix generation',
+      "They can only grow as fast as they can test.",
+      "They're building test plans by hand in a spreadsheet.",
+      ['y','n','y','n','n','n','y','n']],
+    ['Learns from previous winning creatives',
+      "They keep spending to relearn what already worked.",
+      "The ads that worked last quarter get forgotten.",
+      ['y','n','y','Limited','n','n','Limited','Limited']],
+    ['Brand consistency across campaigns',
+      "The brand looks different from one campaign to the next.",
+      "They have to check every ad by hand to keep it on brand.",
+      ['y','y','y','y','Limited','y','y','y']],
+    ['Platform-specific optimization',
+      "Money gets wasted on ads that don't fit the platform.",
+      "They have to redo every ad to fit each platform.",
+      ['y','y','y','y','y','y','y','y']],
+    ['Launch-ready assets with minimal editing',
+      "Launches keep slipping because the ads are never quite done.",
+      "Every ad comes back needing another round of edits.",
+      ['y','y','y','Limited','y','Limited','y','y']],
+    ['Dedicated Customer Success Manager',
+      "When something goes wrong, they're just another support ticket.",
+      "There's no one to call when something breaks.",
+      ['y','Enterprise','Enterprise','Higher tiers','Higher tiers','Higher tiers','y','Higher tiers']],
+    ['White-glove onboarding',
+      "They pay for software the team never actually uses.",
+      "They get handed a login and left to figure it out.",
+      ['y','n','Enterprise','n','n','n','y','n']],
+    ['Strategic creative consulting',
+      "No one with real expertise is on the hook for their results.",
+      "They get a vendor, not a partner who actually helps.",
+      ['y','n','Limited','n','n','n','Limited','Limited']],
+    ['Proactive optimization recommendations',
+      "No one tells them what to fix next.",
+      "They have to notice when performance drops on their own.",
+      ['y','n','y','n','n','n','Limited','y']]
+  ];
+
+  var names = ['Hypesonic','Creatify','Pencil','AdCreative.ai','Arcads','QuickAds','Superscale','HypeOn'];
+  var thead = document.getElementById('thead');
+  var tbody = document.getElementById('tbody');
+  var table = document.querySelector('table');
+  var viewNote = document.getElementById('viewNote');
+  var select = document.getElementById('vs');
+
+  function headCell(ci){
+    var isH = ci === 0;
+    return '<th class="'+(isH?'hcol':'')+'"><div class="head-inner">'+names[ci]+(isH?'<span class="head-badge">That\'s us</span>':'')+'</div></th>';
+  }
+
+  function render(sel){
+    var cols = (sel === 'all') ? [0,1,2,3,4,5,6,7] : [0, parseInt(sel,10)];
+
+    var h = '<tr><th class="cap-col"><div class="head-inner">Capability / Commitment</div></th>';
+    cols.forEach(function(ci){ h += headCell(ci); });
+    thead.innerHTML = h + '</tr>';
+
+    var body = '', shown = 0;
+    rows.forEach(function(r){
+      var vals = r[3];
+      // head-to-head: only rows Hypesonic has (y) that the other platform doesn't
+      if(sel !== 'all' && !(vals[0] === 'y' && vals[parseInt(sel,10)] !== 'y')) return;
+      shown++;
+      body += '<tr><td class="cap-col"><div class="cap-cell"><div class="cap-name">'+r[0]+'</div>'
+            + '<span class="cap-pain">'+r[2]+'</span></div></td>';
+      cols.forEach(function(ci){ body += '<td class="cell'+(ci===0?' hcol':'')+'">'+mark(vals[ci])+'</td>'; });
+      body += '</tr>';
+    });
+
+    if(shown === 0){
+      body = '<tr><td class="cap-col"><div class="cap-cell"><div class="cap-name">Nothing to show</div></div></td>'
+           + '<td class="cell hcol"></td><td class="cell"></td></tr>';
+    }
+    tbody.innerHTML = body;
+
+    if(sel === 'all'){
+      table.style.minWidth = '1060px';
+      viewNote.textContent = '';
+    } else {
+      table.style.minWidth = '620px';
+      viewNote.textContent = "Only what Hypesonic has that " + names[parseInt(sel,10)] + " doesn't \u2014 " + shown + " of " + rows.length;
+    }
+  }
+
+  render('all');
+  select.addEventListener('change', function(){ render(this.value); });
+})();
+</script>
+</body>
+</html>
